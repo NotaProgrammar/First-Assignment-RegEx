@@ -9,7 +9,7 @@ public class Exercises {
         complete the method below, so it will validate an email address
      */
     public boolean validateEmail(String email) {
-        String regex = ""; // todo
+        String regex = "\\b[A-Za-z0-9._]+@[^ _-*<>,][A-Za-z0-9.-]+\\b"; // todo
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
 
@@ -54,6 +54,8 @@ public class Exercises {
     }
 
     public static void main(String[] args) {
-        // you can test your code here
+        String email = "john.doe@example.com";
+        Exercises ex = new Exercises();
+        ex.validateEmail(email);
     }
 }
