@@ -61,7 +61,13 @@ public class Exercises {
      */
     public List<String> findPalindromes(String string) {
         List<String> list = new ArrayList<>();
-        // todo
+        String regex = "\\b(?i)(\\w?)(\\w?)(\\w?)(\\w?)(\\w?)(\\w)\\S?\\6\\5\\4\\3\\2\\1\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(string);
+        while(matcher.find())
+        {
+            list.add(matcher.group());
+        }
         return list;
     }
 
