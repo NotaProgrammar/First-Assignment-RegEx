@@ -9,7 +9,7 @@ public class Exercises {
         complete the method below, so it will validate an email address
      */
     public boolean validateEmail(String email) {
-        String regex = ""; // todo
+        String regex = "\\b[A-Za-z0-9._]+@[^ _-*<>,][A-Za-z0-9.-]+\\b"; // todo
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
 
@@ -22,7 +22,13 @@ public class Exercises {
         if there's no match for a date, return null
      */
     public String findDate(String string) {
-        // todo
+        String regex = "\\b([0-9]{4}[/-][01][0-9][/-][0-3][0-9])|([0-3][0-9][/-][01][0-9][/-][0-9]{4})\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(string);
+
+        if(matcher.find()) {
+            return matcher.group();
+        }
         return null;
     }
 
@@ -37,8 +43,14 @@ public class Exercises {
         - has no white-space in it
      */
     public int findValidPasswords(String string) {
-        // todo
-        return -1;
+        int counter=0;
+        String regex = "\\b(?=.*[A-Za-z][^ ])(?=.*\\d[^ ])(?=.*[@$!%*#?&][^ ])[A-Za-z\\d@$!%*#?&]{8,}\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(string);
+        while(matcher.find()) {
+            counter++;
+        }
+        return counter;
     }
 
     /*
@@ -49,11 +61,19 @@ public class Exercises {
      */
     public List<String> findPalindromes(String string) {
         List<String> list = new ArrayList<>();
-        // todo
+        String regex = "\\b(?i)(\\w?)(\\w?)(\\w?)(\\w?)(\\w?)(\\w)\\S?\\6\\5\\4\\3\\2\\1\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(string);
+        while(matcher.find())
+        {
+            list.add(matcher.group());
+        }
         return list;
     }
 
     public static void main(String[] args) {
-        // you can test your code here
+        String email = "john.doe@example.com";
+        Exercises ex = new Exercises();
+        ex.validateEmail(email);
     }
 }
