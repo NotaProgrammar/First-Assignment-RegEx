@@ -8,7 +8,7 @@ public class Exercises {
     /*
         complete the method below, so it will validate an email address
      */
-    
+
     // NOT PASSED!
     public boolean validateEmail(String email) {
         String regex = ""; // todo
