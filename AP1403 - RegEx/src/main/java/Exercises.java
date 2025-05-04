@@ -11,7 +11,7 @@ public class Exercises {
 
     // NOT PASSED!
     public boolean validateEmail(String email) {
-        String regex = ""; // todo
+        String regex = "\\b[A-Za-z0-9._]+@[^ -_*<>,][A-Za-z0-9.-]+\\b"; // todo
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
 
